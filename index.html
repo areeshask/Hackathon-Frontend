@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortfolioBuilder - Create Your Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        /* mobile menu slide animation */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+}
+.mobile-menu.open {
+  /* big enough to fit the menu items; adjust if you add more items */
+  max-height: 600px;
+}
+
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+  <!-- Navigation (responsive) -->
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+
+      <!-- Logo (unchanged) -->
+      <div class="flex items-center">
+        <div class="flex-shrink-0 flex items-center">
+          <i data-lucide="briefcase" class="h-8 w-8 text-indigo-600 mr-2"></i>
+          <span class="text-xl font-bold text-gray-900">PortfolioBuilder</span>
+        </div>
+      </div>
+
+      <!-- Desktop Buttons (visible on md+) -->
+      <div class="hidden md:flex items-center space-x-4">
+        <button id="loginBtn" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Login</button>
+        <button id="signupBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">Sign Up</button>
+        <button id="logoutBtn" class="hidden bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium">Logout</button>
+      </div>
+
+      <!-- Mobile Toggle Button (visible below md) -->
+      <div class="flex items-center md:hidden">
+        <button id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+          <i data-lucide="menu" class="h-8 w-8"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile stacked menu (mobile only). Uses the same labels but different IDs for mobile -->
+  <div id="mobileMenu" class="mobile-menu md:hidden px-4 pb-4 bg-white shadow-md">
+    <button id="loginBtnMobile" class="w-full text-left text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Login</button>
+    <button id="signupBtnMobile" class="w-full text-left bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium mt-2">Sign Up</button>
+    <button id="logoutBtnMobile" class="w-full text-left hidden bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium mt-2">Logout</button>
+  </div>
+</nav>
+
+
+
+    <!-- Main Content Container -->
+    <div id="mainContent" class="min-h-screen">
+        
+        <!-- Landing Page -->
+        <div id="landingPage" class="fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                        Build Your <span class="text-indigo-600">Professional</span> Portfolio
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                        Create stunning portfolios in minutes. Showcase your work, skills, and achievements with our easy-to-use builder.
+                    </p>
+                    <div class="space-x-4">
+                        <button id="getStartedBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg text-lg font-medium">
+                            Get Started Free
+                        </button>
+                        <button id="viewExamplesBtn" 
+  class="border border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-8 py-3 rounded-lg text-lg font-medium">
+  View Examples
+</button>
+
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div class="mt-20 grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <i data-lucide="palette" class="h-12 w-12 text-indigo-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Beautiful Templates</h3>
+                        <p class="text-gray-600">Choose from professionally designed templates that make you stand out.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <i data-lucide="smartphone" class="h-12 w-12 text-indigo-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Mobile Responsive</h3>
+                        <p class="text-gray-600">Your portfolio looks perfect on all devices and screen sizes.</p>
+                    </div>
+                    <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                        <i data-lucide="zap" class="h-12 w-12 text-indigo-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Quick Setup</h3>
+                        <p class="text-gray-600">Get your portfolio online in minutes, not hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="hidden fade-in">
+            <div class="max-w-md mx-auto mt-20 bg-white rounded-xl shadow-lg p-8">
+                <div class="text-center mb-8">
+                    <i data-lucide="user" class="h-12 w-12 text-indigo-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900">Welcome Back</h2>
+                    <p class="text-gray-600">Sign in to your account</p>
+                </div>
+           <form id="loginFormElement" autocomplete="off">
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="email" id="loginEmail" name="email"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+               autocomplete="off" required>
+    </div>
+    <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+        <input type="password" id="loginPassword" name="password"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+               autocomplete="new-password" required>
+    </div>
+    <button type="submit"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">
+        Sign In
+    </button>
+</form>
+
+                <p class="text-center mt-4 text-gray-600">
+                    Don't have an account? 
+                    <button id="switchToSignup" class="text-indigo-600 hover:text-indigo-800">Sign up</button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="hidden fade-in">
+            <div class="max-w-md mx-auto mt-20 bg-white rounded-xl shadow-lg p-8">
+                <div class="text-center mb-8">
+                    <i data-lucide="user-plus" class="h-12 w-12 text-indigo-600 mx-auto mb-4"></i>
+                    <h2 class="text-2xl font-bold text-gray-900">Create Account</h2>
+                    <p class="text-gray-600">Join thousands of professionals</p>
+                </div>
+   <form id="signupFormElement" autocomplete="off">
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+        <input type="text" id="signupName" name="name"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+               autocomplete="off" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="email" id="signupEmail" name="email"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+               autocomplete="off" required>
+    </div>
+
+    <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+        <input type="password" id="signupPassword" name="password"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+               autocomplete="new-password" required>
+    </div>
+
+    <button type="submit"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">
+        Create Account
+    </button>
+</form>
+
+                <p class="text-center mt-4 text-gray-600">
+                    Already have an account? 
+                    <button id="switchToLogin" class="text-indigo-600 hover:text-indigo-800">Sign in</button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="hidden fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <!-- Dashboard Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, <span id="userName">User</span>!</h1>
+                    <p class="text-gray-600">Manage your portfolios and create new ones</p>
+                </div>
+
+                <!-- Dashboard Stats -->
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="briefcase" class="h-8 w-8 text-blue-600"></i>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Total Portfolios</p>
+                                <p class="text-2xl font-bold text-gray-900" id="totalPortfolios">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="eye" class="h-8 w-8 text-green-600"></i>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Total Views</p>
+                                <p class="text-2xl font-bold text-gray-900">1,247</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="star" class="h-8 w-8 text-yellow-600"></i>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Featured</p>
+                                <p class="text-2xl font-bold text-gray-900">1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="flex items-center">
+                            <i data-lucide="trending-up" class="h-8 w-8 text-purple-600"></i>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">This Month</p>
+                                <p class="text-2xl font-bold text-gray-900">+23%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="mb-8">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+                    <div class="flex flex-wrap gap-4">
+                        <button id="createPortfolioBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium flex items-center">
+                            <i data-lucide="plus" class="h-5 w-5 mr-2"></i>
+                            Create New Portfolio
+                        </button>
+                     <!-- Import Portfolio Button -->
+<button id="importPortfolioBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium flex items-center">
+  <i data-lucide="upload" class="h-5 w-5 mr-2"></i>
+  Import Portfolio
+</button>
+
+<!-- Hidden file input -->
+<input type="file" id="importFileInput"  class="hidden" />
+
+                        <button id="accountSettingsBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium flex items-center">
+                            <i data-lucide="settings" class="h-5 w-5 mr-2"></i>
+                            Account Settings
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio List -->
+                <div class="bg-white rounded-xl shadow-lg">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-bold text-gray-900">Your Portfolios</h2>
+                    </div>
+                    <div id="portfolioList" class="divide-y divide-gray-200">
+                        <!-- Portfolio items will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Builder -->
+        <div id="portfolioBuilder" class="hidden fade-in">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Portfolio Builder</h1>
+                    <div class="space-x-4">
+                        <button id="previewBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg">Preview</button>
+                        <button id="savePortfolioBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">Save Portfolio</button>
+                        <button id="backToDashboard" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg">Back to Dashboard</button>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Builder Form -->
+                    <div class="lg:col-span-1 space-y-6">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Basic Information</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    <input type="text" id="portfolioName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                                    <input type="text" id="portfolioTitle" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Full Stack Developer">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                                    <textarea id="portfolioBio" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Tell us about yourself..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="portfolioEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" placeholder="john@example.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Skills</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <input type="text" id="skillInput" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Add a skill...">
+                                    <button id="addSkillBtn" class="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm">Add Skill</button>
+                                </div>
+                                <div id="skillsList" class="flex flex-wrap gap-2">
+                                    <!-- Skills will be added here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Projects</h3>
+                            <button id="addProjectBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg mb-4">Add Project</button>
+                            <div id="projectsList" class="space-y-4">
+                                <!-- Projects will be added here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Preview -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="bg-gray-50 px-4 py-2 border-b">
+                                <p class="text-sm text-gray-600">Live Preview</p>
+                            </div>
+                            <div id="portfolioPreview" class="p-8 min-h-96">
+                                <div class="text-center">
+                                    <div class="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                        <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+                                    </div>
+                                    <h1 class="text-3xl font-bold text-gray-900 mb-2" id="previewName">Your Name</h1>
+                                    <p class="text-xl text-gray-600 mb-4" id="previewTitle">Your Title</p>
+                                    <p class="text-gray-700 mb-6 max-w-2xl mx-auto" id="previewBio">Your bio will appear here...</p>
+                                    <p class="text-indigo-600" id="previewEmail">your.email@example.com</p>
+                                    
+                                    <div class="mt-8">
+                                        <h3 class="text-xl font-semibold mb-4">Skills</h3>
+                                        <div id="previewSkills" class="flex flex-wrap justify-center gap-2 mb-8">
+                                            <!-- Skills preview -->
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-8">
+                                        <h3 class="text-xl font-semibold mb-4">Projects</h3>
+                                        <div id="previewProjects" class="space-y-4">
+                                            <!-- Projects preview -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="examplesSection" 
+     class="hidden fade-in absolute top-0 left-0 w-full min-h-screen bg-white z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Example Portfolios</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+   <!-- Example 1 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+        <p class="text-gray-600 mb-2">Full Stack Developer</p>
+        <p class="text-gray-500 text-sm">Skilled in MERN stack, built e-commerce platforms and SaaS dashboards.</p>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-xl font-semibold mb-2">Jane Smith</h3>
+        <p class="text-gray-600 mb-2">UI/UX Designer</p>
+        <p class="text-gray-500 text-sm">Specializes in clean, modern designs with Figma & Tailwind.</p>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-xl font-semibold mb-2">Ali Khan</h3>
+        <p class="text-gray-600 mb-2">Data Scientist</p>
+        <p class="text-gray-500 text-sm">Experienced in Python, ML models, and data visualization dashboards.</p>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-xl font-semibold mb-2">Sara Ahmed</h3>
+        <p class="text-gray-600 mb-2">Mobile App Developer</p>
+        <p class="text-gray-500 text-sm">Created cross-platform apps using React Native & Firebase.</p>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+        <h3 class="text-xl font-semibold mb-2">Michael Lee</h3>
+        <p class="text-gray-600 mb-2">Cybersecurity Specialist</p>
+        <p class="text-gray-500 text-sm">Focus on penetration testing, security audits, and safe systems.</p>
+      </div>
+
+    </div>
+    <!-- Back Button -->
+    <div class="text-center mt-12">
+      <button id="backToHomeBtn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">
+        Back to Home
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Account Settings Section -->
+<section id="accountSettingsSection" class="hidden fade-in absolute top-0 left-0 w-full min-h-screen z-50 bg-gray-50">
+  <div class="max-w-4xl mx-auto p-8">
+    
+    <!-- Title + Back Button -->
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold text-gray-800">Account Settings</h2>
+      <button 
+        id="backToDashboardBtn" 
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded">
+        Back to Dashboard
+      </button>
+    </div>
+
+    <!-- Profile Information -->
+<div class="bg-white shadow rounded-lg p-6 mb-6">
+  <h3 class="text-lg font-semibold text-gray-700 mb-4">Profile Information</h3>
+  <form id="accountSettingsForm" class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-600">Full Name</label>
+      <input type="text" id="fullNameInput" class="w-full border rounded px-3 py-2 mt-1 focus:ring focus:ring-blue-300" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-600">Email</label>
+      <input type="email" id="emailInput" class="w-full border rounded px-3 py-2 mt-1 focus:ring focus:ring-blue-300" />
+    </div>
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      Save Changes
+    </button>
+  </form>
+</div>
+
+<!-- Password Settings -->
+<div class="bg-white shadow rounded-lg p-6 mb-6">
+  <h3 class="text-lg font-semibold text-gray-700 mb-4">Change Password</h3>
+  <form id="passwordForm" class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-600">Current Password</label>
+      <input type="password" id="currentPasswordInput" class="w-full border rounded px-3 py-2 mt-1" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-600">New Password</label>
+      <input type="password" id="newPasswordInput" class="w-full border rounded px-3 py-2 mt-1" />
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-600">Confirm Password</label>
+      <input type="password" id="confirmPasswordInput" class="w-full border rounded px-3 py-2 mt-1" />
+    </div>
+    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+      Update Password
+    </button>
+  </form>
+</div>
+
+
+    <!-- Danger Zone -->
+    <div class="bg-white shadow rounded-lg p-6">
+      <h3 class="text-lg font-semibold text-red-600 mb-4">Danger Zone</h3>
+      <p class="text-gray-600 mb-4">Once you delete your account, there is no going back. Please be certain.</p>
+      <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+        Delete Account
+      </button>
+    </div>
+  </div>
+</section>
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Application State
+        let currentUser = null;
+        let currentView = 'landing';
+        let portfolios = [];
+        let currentPortfolio = {
+            name: '',
+            title: '',
+            bio: '',
+            email: '',
+            skills: [],
+            projects: []
+        };
+
+        // Mock user database (in real app, this would be handled by backend)
+        let users = JSON.parse(localStorage.getItem('portfolioUsers') || '[]');
+        let userPortfolios = JSON.parse(localStorage.getItem('userPortfolios') || '{}');
+
+        // DOM Elements
+        const elements = {
+            landingPage: document.getElementById('landingPage'),
+            loginForm: document.getElementById('loginForm'),
+            signupForm: document.getElementById('signupForm'),
+            dashboard: document.getElementById('dashboard'),
+            portfolioBuilder: document.getElementById('portfolioBuilder'),
+            loginBtn: document.getElementById('loginBtn'),
+            signupBtn: document.getElementById('signupBtn'),
+            logoutBtn: document.getElementById('logoutBtn'),
+            getStartedBtn: document.getElementById('getStartedBtn')
+        };
+
+// Account Settings functionality
+const accountSettingsBtn = document.getElementById("accountSettingsBtn");
+const accountSettingsSection = document.getElementById("accountSettingsSection");
+const backToDashboardBtn = document.getElementById("backToDashboardBtn");
+
+// Load saved user data into form
+function loadAccountSettings() {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if (user) {
+        document.getElementById("fullNameInput").value = user.name || "";
+        document.getElementById("emailInput").value = user.email || "";
+    }
+}
+
+
+// Handle save changes
+document.getElementById("accountSettingsForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const updatedName = document.getElementById("fullNameInput").value;
+    const updatedEmail = document.getElementById("emailInput").value;
+
+    let current = JSON.parse(localStorage.getItem("currentUser"));
+    if (!current) return;
+
+    current.name = updatedName;
+    current.email = updatedEmail;
+
+    // ✅ Update portfolioUsers array
+    users = users.map(u => u.id === current.id ? current : u);
+    localStorage.setItem("portfolioUsers", JSON.stringify(users));
+
+    // ✅ Update currentUser
+    localStorage.setItem("currentUser", JSON.stringify(current));
+
+    alert("Profile updated successfully!");
+});
+
+
+// Handle password change
+document.getElementById("passwordForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const currentPassword = document.getElementById("currentPasswordInput").value;
+    const newPassword = document.getElementById("newPasswordInput").value;
+    const confirmPassword = document.getElementById("confirmPasswordInput").value;
+
+    let user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (!user || currentPassword !== user.password) {
+        alert("Current password is incorrect");
+        return;
+    }
+    if (newPassword !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    user.password = newPassword;
+
+    // ✅ Update portfolioUsers
+    users = users.map(u => u.id === user.id ? user : u);
+    localStorage.setItem("portfolioUsers", JSON.stringify(users));
+
+    // ✅ Update currentUser
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    alert("Password updated successfully!");
+});
+
+
+// Open Account Settings
+if (accountSettingsBtn) {
+  accountSettingsBtn.addEventListener("click", () => {
+    elements.dashboard.classList.add("hidden"); // hide dashboard
+    accountSettingsSection.classList.remove("hidden"); // show settings
+    loadAccountSettings(); // ✅ load user data into inputs
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+// Back to dashboard
+backToDashboardBtn.addEventListener("click", () => {
+  accountSettingsSection.classList.add("hidden"); // hide settings
+  elements.dashboard.classList.remove("hidden"); // show dashboard
+});
+
+
+
+  // Import Portfolio functionality
+  const importBtn = document.getElementById("importPortfolioBtn");
+  const importFileInput = document.getElementById("importFileInput");
+
+  importBtn.addEventListener("click", () => {
+    importFileInput.click(); // open file picker
+  });
+
+importFileInput.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  if (!file) return; // No file selected
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const content = e.target.result;
+
+    // Create a new portfolio card
+    const portfolioList = document.getElementById("portfolioList");
+    const card = document.createElement("div");
+    card.className = "bg-white shadow-md rounded-lg p-4";
+
+    card.innerHTML = `
+      <h3 class="text-lg font-bold">${file.name}</h3>
+      <p class="text-sm text-gray-500">Size: ${(file.size / 1024).toFixed(2)} KB</p>
+      <p class="text-sm mt-2">Preview:</p>
+      <div class="border p-2 mt-1 text-xs overflow-auto h-32 bg-gray-50">
+        ${content.substring(0, 500) || "Preview not available"}
+      </div>
+    `;
+
+    portfolioList.appendChild(card);
+  };
+
+// For PDFs or other binary files, create a blob URL
+const fileURL = URL.createObjectURL(file);
+
+// Create a clickable link for the portfolio list
+const portfolioList = document.getElementById("portfolioList");
+const card = document.createElement("div");
+card.className = "bg-white shadow-md rounded-lg p-4";
+
+card.innerHTML = `
+  <h3 class="text-lg font-bold">${file.name}</h3>
+  <p class="text-sm text-gray-500">Size: ${(file.size / 1024).toFixed(2)} KB</p>
+  <a href="${fileURL}" target="_blank" class="text-indigo-600 underline mt-2 block">
+    Open File
+  </a>
+`;
+
+portfolioList.appendChild(card);
+
+});
+
+
+// --- Mobile menu toggle + forwarding mobile clicks to desktop handlers ---
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+  mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
+});
+
+// Forward mobile button clicks to your existing desktop buttons (so existing logic runs)
+document.getElementById('loginBtnMobile').addEventListener('click', () => {
+  document.getElementById('loginBtn').click();
+  mobileMenu.classList.remove('open'); // close after click
+  mobileMenuBtn.setAttribute('aria-expanded', 'false');
+});
+document.getElementById('signupBtnMobile').addEventListener('click', () => {
+  document.getElementById('signupBtn').click();
+  mobileMenu.classList.remove('open');
+  mobileMenuBtn.setAttribute('aria-expanded', 'false');
+});
+document.getElementById('logoutBtnMobile').addEventListener('click', () => {
+  document.getElementById('logoutBtn').click();
+  mobileMenu.classList.remove('open');
+  mobileMenuBtn.setAttribute('aria-expanded', 'false');
+});
+
+
+
+        // Navigation Functions
+        function showView(viewName) {
+            // Hide all views
+            Object.values(elements).forEach(el => {
+                if (el && el.classList) {
+                    el.classList.add('hidden');
+                }
+            });
+
+            // Show requested view
+            const viewElement = elements[viewName];
+            if (viewElement) {
+                viewElement.classList.remove('hidden');
+                currentView = viewName;
+            }
+
+            // Update navigation
+            updateNavigation();
+        }
+
+        function updateNavigation() {
+            if (currentUser) {
+                elements.loginBtn.classList.add('hidden');
+                elements.signupBtn.classList.add('hidden');
+                elements.logoutBtn.classList.remove('hidden');
+            } else {
+                elements.loginBtn.classList.remove('hidden');
+                elements.signupBtn.classList.remove('hidden');
+                elements.logoutBtn.classList.add('hidden');
+            }
+        }
+
+        // Authentication Functions
+function login(email, password) {
+    const user = users.find(u => u.email === email && u.password === password);
+    if (user) {
+        currentUser = user;
+        localStorage.setItem("currentUser", JSON.stringify(currentUser)); // ✅
+        document.getElementById("userName").textContent = user.name;
+        loadUserPortfolios();
+        showView("dashboard");
+        return true;
+    }
+    return false;
+}
+
+
+function signup(name, email, password) {
+    if (users.find(u => u.email === email)) {
+        return false; // User already exists
+    }
+
+    const newUser = { id: Date.now(), name, email, password };
+    users.push(newUser);
+    localStorage.setItem("portfolioUsers", JSON.stringify(users));
+
+    // ✅ Save as currentUser
+    currentUser = newUser;
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+    document.getElementById("userName").textContent = name;
+    userPortfolios[newUser.id] = [];
+    localStorage.setItem("userPortfolios", JSON.stringify(userPortfolios));
+    showView("dashboard");
+    return true;
+}
+
+
+        function logout() {
+            currentUser = null;
+            showView('landingPage');
+        }
+// Example Section Logic
+const viewExamplesBtn = document.getElementById('viewExamplesBtn');
+const examplesSection = document.getElementById('examplesSection');
+const backToHomeBtn = document.getElementById('backToHomeBtn');
+
+viewExamplesBtn.addEventListener('click', () => {
+  elements.landingPage.classList.add('hidden');   // hide landing
+  examplesSection.classList.remove('hidden');     // show examples
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll top
+});
+
+backToHomeBtn.addEventListener('click', () => {
+  examplesSection.classList.add('hidden');        // hide examples
+  elements.landingPage.classList.remove('hidden');// show landing
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // scroll top
+});
+
+
+
+        // Portfolio Functions
+        function loadUserPortfolios() {
+            if (!currentUser) return;
+            
+            portfolios = userPortfolios[currentUser.id] || [];
+            document.getElementById('totalPortfolios').textContent = portfolios.length;
+            renderPortfolioList();
+        }
+
+        function renderPortfolioList() {
+            const container = document.getElementById('portfolioList');
+            
+            if (portfolios.length === 0) {
+                container.innerHTML = `
+                    <div class="p-8 text-center text-gray-500">
+                        <i data-lucide="briefcase" class="h-12 w-12 mx-auto mb-4 text-gray-300"></i>
+                        <p>No portfolios yet. Create your first one!</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            container.innerHTML = portfolios.map(portfolio => `
+                <div class="p-6 hover:bg-gray-50">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900">${portfolio.name || 'Untitled Portfolio'}</h3>
+                            <p class="text-gray-600">${portfolio.title || 'No title'}</p>
+                            <p class="text-sm text-gray-500 mt-1">Created: ${new Date(portfolio.created).toLocaleDateString()}</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="editPortfolio(${portfolio.id})" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Edit
+                            </button>
+                            <button onclick="deletePortfolio(${portfolio.id})" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function createNewPortfolio() {
+            currentPortfolio = {
+                id: Date.now(),
+                name: '',
+                title: '',
+                bio: '',
+                email: '',
+                skills: [],
+                projects: [],
+                created: Date.now()
+            };
+            showView('portfolioBuilder');
+            updatePortfolioPreview();
+        }
+
+        function editPortfolio(id) {
+            const portfolio = portfolios.find(p => p.id === id);
+            if (portfolio) {
+                currentPortfolio = { ...portfolio };
+                populateBuilderForm();
+                showView('portfolioBuilder');
+                updatePortfolioPreview();
+            }
+        }
+
+        function deletePortfolio(id) {
+            if (confirm('Are you sure you want to delete this portfolio?')) {
+                portfolios = portfolios.filter(p => p.id !== id);
+                userPortfolios[currentUser.id] = portfolios;
+                localStorage.setItem('userPortfolios', JSON.stringify(userPortfolios));
+                loadUserPortfolios();
+            }
+        }
+
+        function savePortfolio() {
+            if (!currentPortfolio.name.trim()) {
+                alert('Please enter a name for your portfolio');
+                return;
+            }
+
+            const existingIndex = portfolios.findIndex(p => p.id === currentPortfolio.id);
+            if (existingIndex >= 0) {
+                portfolios[existingIndex] = currentPortfolio;
+            } else {
+                portfolios.push(currentPortfolio);
+            }
+
+            userPortfolios[currentUser.id] = portfolios;
+            localStorage.setItem('userPortfolios', JSON.stringify(userPortfolios));
+            
+            alert('Portfolio saved successfully!');
+            showView('dashboard');
+            loadUserPortfolios();
+        }
+
+        function populateBuilderForm() {
+            document.getElementById('portfolioName').value = currentPortfolio.name || '';
+            document.getElementById('portfolioTitle').value = currentPortfolio.title || '';
+            document.getElementById('portfolioBio').value = currentPortfolio.bio || '';
+            document.getElementById('portfolioEmail').value = currentPortfolio.email || '';
+            
+            renderSkills();
+            renderProjects();
+        }
+
+        function updatePortfolioPreview() {
+            document.getElementById('previewName').textContent = currentPortfolio.name || 'Your Name';
+            document.getElementById('previewTitle').textContent = currentPortfolio.title || 'Your Title';
+            document.getElementById('previewBio').textContent = currentPortfolio.bio || 'Your bio will appear here...';
+            document.getElementById('previewEmail').textContent = currentPortfolio.email || 'your.email@example.com';
+            
+            renderPreviewSkills();
+            renderPreviewProjects();
+        }
+
+        function addSkill() {
+            const skillInput = document.getElementById('skillInput');
+            const skill = skillInput.value.trim();
+            
+            if (skill && !currentPortfolio.skills.includes(skill)) {
+                currentPortfolio.skills.push(skill);
+                skillInput.value = '';
+                renderSkills();
+                updatePortfolioPreview();
+            }
+        }
+
+        function removeSkill(skill) {
+            currentPortfolio.skills = currentPortfolio.skills.filter(s => s !== skill);
+            renderSkills();
+            updatePortfolioPreview();
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skillsList');
+            container.innerHTML = currentPortfolio.skills.map(skill => `
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm flex items-center">
+                    ${skill}
+                    <button onclick="removeSkill('${skill}')" class="ml-2 text-indigo-600 hover:text-indigo-800">
+                        <i data-lucide="x" class="h-3 w-3"></i>
+                    </button>
+                </span>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function renderPreviewSkills() {
+            const container = document.getElementById('previewSkills');
+            container.innerHTML = currentPortfolio.skills.map(skill => `
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">${skill}</span>
+            `).join('');
+        }
+
+        function addProject() {
+            const project = {
+                id: Date.now(),
+                title: '',
+                description: '',
+                technologies: '',
+                link: ''
+            };
+            currentPortfolio.projects.push(project);
+            renderProjects();
+            updatePortfolioPreview();
+        }
+
+        function removeProject(id) {
+            currentPortfolio.projects = currentPortfolio.projects.filter(p => p.id !== id);
+            renderProjects();
+            updatePortfolioPreview();
+        }
+
+        function updateProject(id, field, value) {
+            const project = currentPortfolio.projects.find(p => p.id === id);
+            if (project) {
+                project[field] = value;
+                updatePortfolioPreview();
+            }
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projectsList');
+            container.innerHTML = currentPortfolio.projects.map(project => `
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <div class="space-y-3">
+                        <input type="text" placeholder="Project Title" value="${project.title}" 
+                               onchange="updateProject(${project.id}, 'title', this.value)"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500">
+                        <textarea placeholder="Project Description" onchange="updateProject(${project.id}, 'description', this.value)"
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500">${project.description}</textarea>
+                        <input type="text" placeholder="Technologies Used" value="${project.technologies}"
+                               onchange="updateProject(${project.id}, 'technologies', this.value)"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500">
+                        <input type="url" placeholder="Project Link" value="${project.link}"
+                               onchange="updateProject(${project.id}, 'link', this.value)"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500">
+                        <button onclick="removeProject(${project.id})" class="text-red-600 hover:text-red-800 text-sm">
+                            Remove Project
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPreviewProjects() {
+            const container = document.getElementById('previewProjects');
+            if (currentPortfolio.projects.length === 0) {
+                container.innerHTML = '<p class="text-gray-500">No projects added yet</p>';
+                return;
+            }
+            
+            container.innerHTML = currentPortfolio.projects.map(project => `
+                <div class="bg-gray-50 p-4 rounded-lg text-left">
+                    <h4 class="font-semibold text-lg mb-2">${project.title || 'Untitled Project'}</h4>
+                    <p class="text-gray-700 mb-2">${project.description || 'No description'}</p>
+                    ${project.technologies ? `<p class="text-sm text-gray-600 mb-2"><strong>Technologies:</strong> ${project.technologies}</p>` : ''}
+                    ${project.link ? `<a href="${project.link}" class="text-indigo-600 hover:text-indigo-800 text-sm">View Project →</a>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Event Listeners
+        elements.loginBtn.addEventListener('click', () => showView('loginForm'));
+        elements.signupBtn.addEventListener('click', () => showView('signupForm'));
+        elements.getStartedBtn.addEventListener('click', () => showView('signupForm'));
+        elements.logoutBtn.addEventListener('click', logout);
+
+        document.getElementById('switchToSignup').addEventListener('click', () => showView('signupForm'));
+        document.getElementById('switchToLogin').addEventListener('click', () => showView('loginForm'));
+
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+         e.preventDefault();
+
+        const enteredEmail = document.getElementById("loginEmail").value;
+        const enteredPassword = document.getElementById("loginPassword").value;
+
+        if (login(enteredEmail, enteredPassword)) {
+            alert("Login successful!");
+      } else {
+         alert("Invalid email or password");
+        }
+ });
+
+
+
+        document.getElementById('signupFormElement').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            if (signup(name, email, password)) {
+                alert('Account created successfully!');
+            } else {
+                alert('Email already exists');
+            }
+        });
+
+        document.getElementById('createPortfolioBtn').addEventListener('click', createNewPortfolio);
+        document.getElementById('backToDashboard').addEventListener('click', () => showView('dashboard'));
+        document.getElementById('savePortfolioBtn').addEventListener('click', savePortfolio);
+
+        // Portfolio Builder Event Listeners
+        document.getElementById('portfolioName').addEventListener('input', (e) => {
+            currentPortfolio.name = e.target.value;
+            updatePortfolioPreview();
+        });
+
+        document.getElementById('portfolioTitle').addEventListener('input', (e) => {
+            currentPortfolio.title = e.target.value;
+            updatePortfolioPreview();
+        });
+
+        document.getElementById('portfolioBio').addEventListener('input', (e) => {
+            currentPortfolio.bio = e.target.value;
+            updatePortfolioPreview();
+        });
+
+        document.getElementById('portfolioEmail').addEventListener('input', (e) => {
+            currentPortfolio.email = e.target.value;
+            updatePortfolioPreview();
+        });
+
+        document.getElementById('addSkillBtn').addEventListener('click', addSkill);
+        document.getElementById('skillInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addSkill();
+            }
+        });
+
+        document.getElementById('addProjectBtn').addEventListener('click', addProject);
+
+        // Initialize the application
+        showView('landingPage');
+        lucide.createIcons();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975d70bdf0fa21ec',t:'MTc1NjMxNzMzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
